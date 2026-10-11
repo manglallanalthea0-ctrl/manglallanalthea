@@ -1,0 +1,435 @@
+
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #76334f;
+    background: linear-gradient(
+        135deg,
+        #ffe4ed,
+        #ffd0e2,
+        #f2ddff
+    );
+    overflow-x: hidden;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts span {
+    position: fixed;
+    bottom: -60px;
+    left: var(--left);
+    font-size: var(--size);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatUp var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+.floating-hearts span:nth-child(1) {
+    --left: 8%;
+    --size: 25px;
+    --duration: 10s;
+    --delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    --left: 25%;
+    --size: 35px;
+    --duration: 12s;
+    --delay: 3s;
+}
+
+.floating-hearts span:nth-child(3) {
+    --left: 45%;
+    --size: 22px;
+    --duration: 9s;
+    --delay: 1s;
+}
+
+.floating-hearts span:nth-child(4) {
+    --left: 65%;
+    --size: 32px;
+    --duration: 11s;
+    --delay: 4s;
+}
+
+.floating-hearts span:nth-child(5) {
+    --left: 82%;
+    --size: 28px;
+    --duration: 13s;
+    --delay: 2s;
+}
+
+.floating-hearts span:nth-child(6) {
+    --left: 94%;
+    --size: 24px;
+    --duration: 10s;
+    --delay: 5s;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    position: relative;
+}
+
+.home-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    padding: clamp(28px, 6vw, 55px);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 20px 55px rgba(176, 71, 123, 0.2);
+    animation: fadeIn 0.9s ease both;
+}
+
+.main-heart {
+    font-size: clamp(55px, 12vw, 75px);
+    margin-bottom: 20px;
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+.top-text {
+    color: #c54b80;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.home-card h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 8vw, 58px);
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 360px;
+    margin: 0 auto 30px;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.letter-button,
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 20px;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #ff7eae, #d63384);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(214, 51, 132, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.letter-button:hover,
+.home-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(214, 51, 132, 0.3);
+}
+
+.letter-button:active,
+.home-button:active {
+    transform: scale(0.98);
+}
+
+.bottom-text {
+    color: #a25a7c;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+/* =========================
+   LETTER PAGE
+========================= */
+
+.letter-page {
+    padding: 24px 16px;
+}
+
+.letter-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease both;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    color: #a12f66;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.letter-card {
+    padding: clamp(22px, 5vw, 55px);
+    background: #fffdfd;
+    border: 2px solid white;
+    border-radius: 25px;
+    box-shadow: 0 18px 50px rgba(176, 71, 123, 0.17);
+}
+
+.letter-icon {
+    text-align: center;
+    font-size: clamp(45px, 10vw, 65px);
+    margin-bottom: 18px;
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+.letter-label {
+    color: #c54b80;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.letter-card h1 {
+    font-family: Georgia, serif;
+    color: #c52f75;
+    text-align: center;
+    font-size: clamp(25px, 5vw, 38px);
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.greeting {
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: clamp(16px, 4vw, 28px);
+    border-radius: 18px;
+    border-left: 4px solid #ed8db5;
+    background: #fff0f6;
+}
+
+.message p {
+    font-size: 16px;
+    line-height: 1.95;
+    margin-bottom: 22px;
+    overflow-wrap: anywhere;
+}
+
+.message p:last-child {
+    margin-bottom: 0;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 1.9;
+}
+
+.signature h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(20px, 4vw, 27px);
+    color: #d63384;
+    overflow-wrap: anywhere;
+}
+
+.heart-divider {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 24px;
+}
+
+.home-button {
+    max-width: 240px;
+    margin: 28px auto 0;
+}
+
+.page-footer {
+    margin: 24px 0 8px;
+    text-align: center;
+    font-size: 13px;
+    color: #995776;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   TABLET AND MOBILE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+    .home-page {
+        padding: 18px;
+    }
+
+    .home-card {
+        border-radius: 24px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .letter-page {
+        padding: 14px 12px;
+    }
+
+    .letter-card {
+        border-radius: 20px;
+    }
+
+    .message p {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .floating-hearts span {
+        font-size: 20px;
+    }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+    .home-page {
+        padding: 12px;
+    }
+
+    .home-card {
+        padding: 28px 18px;
+    }
+
+    .top-text,
+    .letter-label {
+        letter-spacing: 2px;
+    }
+
+    .letter-page {
+        padding: 10px;
+    }
+
+    .letter-card {
+        padding: 18px 14px;
+    }
+
+    .message {
+        padding: 14px;
+    }
+
+    .message p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .letter-button,
+    .home-button {
+        font-size: 14px;
+        padding: 13px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
